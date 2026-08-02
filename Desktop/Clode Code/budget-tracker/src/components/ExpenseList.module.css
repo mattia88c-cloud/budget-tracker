@@ -1,0 +1,117 @@
+.wrap { display: flex; flex-direction: column; gap: 14px; }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.count {
+  background: var(--glass2);
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.activeCount {
+  font-size: 0.7rem;
+  color: var(--green);
+  font-weight: 600;
+  background: var(--green-dim);
+  border: 1px solid rgba(74,222,128,0.2);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.filterBar {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  border-radius: 999px;
+  padding: 5px 13px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+.filterBtn:hover {
+  color: var(--text);
+  border-color: var(--glass-border2);
+  background: var(--glass2);
+}
+
+.filterActive {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-dim);
+  box-shadow: 0 0 12px var(--primary-dim);
+}
+
+.searchWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--glass2);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: 0 14px;
+  transition: border-color 0.2s;
+}
+
+.searchWrap:focus-within {
+  border-color: var(--primary);
+}
+
+.searchIcon { font-size: 0.85rem; color: var(--text-muted); flex-shrink: 0; }
+
+.searchInput {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 0.88rem;
+  padding: 10px 0;
+}
+
+.searchInput::placeholder { color: var(--text-muted); }
+
+.searchClear {
+  background: none;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: color 0.15s;
+}
+.searchClear:hover { color: var(--text); }
+
+.list { display: flex; flex-direction: column; gap: 6px; }
+
+.empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 40px 20px;
+  font-size: 0.82rem;
+  border: 1px dashed rgba(167,139,250,0.2);
+  border-radius: var(--radius);
+}

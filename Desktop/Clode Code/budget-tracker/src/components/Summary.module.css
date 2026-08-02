@@ -1,0 +1,242 @@
+.wrap { width: 100%; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  background: var(--glass2);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(167,139,250,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.card:hover {
+  border-color: var(--glass-border2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.cardInactive { opacity: 0.45; }
+
+.residuoCard {
+  border-color: rgba(167,139,250,0.25);
+  background: rgba(139,92,246,0.08);
+  box-shadow: 0 0 30px rgba(139,92,246,0.08) inset;
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cardIcon {
+  font-size: 0.95rem;
+  width: 28px;
+  height: 28px;
+  background: var(--glass3);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cardLabel {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  flex: 1;
+}
+
+.cardValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.cardSub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.progressBar {
+  height: 3px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Toggle */
+.toggle {
+  width: 34px;
+  height: 20px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--glass-border2);
+  flex-shrink: 0;
+  position: relative;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  padding: 0;
+  margin-left: auto;
+}
+
+.toggleOn {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  box-shadow: 0 0 12px rgba(251,191,36,0.4);
+}
+
+.toggleThumb {
+  position: absolute;
+  top: 2.5px;
+  left: 2.5px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  transition: transform 0.2s, background 0.2s;
+  display: block;
+}
+
+.toggleOn .toggleThumb {
+  transform: translateX(14px);
+  background: #fff;
+}
+
+/* Goal */
+.goalEditBtn {
+  background: none;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  padding: 2px 4px;
+  border-radius: 4px;
+  margin-left: auto;
+  transition: color 0.15s;
+}
+.goalEditBtn:hover { color: var(--primary); }
+
+.goalEdit {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.goalCurrency {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.goalInput {
+  flex: 1;
+  background: rgba(167,139,250,0.08);
+  border: 1.5px solid var(--primary);
+  border-radius: var(--radius-xs);
+  padding: 6px 8px;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 700;
+  min-width: 0;
+}
+.goalInput::-webkit-outer-spin-button,
+.goalInput::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+.goalSave {
+  background: var(--green);
+  color: #000;
+  border-radius: var(--radius-xs);
+  padding: 5px 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.goalPct {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.invValueRow {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.editHint {
+  font-size: 0.7rem;
+  opacity: 0.45;
+  transition: opacity 0.15s;
+}
+.invValueRow:hover .editHint { opacity: 0.9; }
+
+.equivLine {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  margin-top: 1px;
+}
+.equivLine strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* Mode toggle row at card bottom */
+.cardToggleRow {
+  display: flex;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.modeBtn {
+  flex: 1;
+  padding: 4px 0;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--glass3);
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.modeBtnActive {
+  background: var(--primary-dim);
+  color: var(--primary);
+  border-color: var(--primary-glow);
+}

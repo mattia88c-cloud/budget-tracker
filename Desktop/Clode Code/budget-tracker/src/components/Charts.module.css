@@ -1,0 +1,96 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.card {
+  background: var(--glass2);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  transition: border-color 0.2s, transform 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(167,139,250,0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.card:hover {
+  border-color: var(--glass-border2);
+  transform: translateY(-1px);
+}
+
+.cardTitle {
+  font-size: 0.67rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+
+.donutWrap { max-width: 300px; margin: 0 auto; }
+
+.donutWrap2 {
+  position: relative;
+  max-width: 190px;
+  margin: 0 auto;
+}
+
+.donutCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.donutPct {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--green);
+  letter-spacing: -0.04em;
+  text-shadow: 0 0 20px rgba(74,222,128,0.4);
+}
+
+.donutLabel {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.barWrap { height: 200px; }
+.hBarWrap { height: auto; min-height: 160px; }
+
+.empty {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  padding: 36px 0;
+}
+
+.emptyState {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  padding: 48px 20px;
+  background: var(--glass2);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+}
+
+@media (max-width: 650px) {
+  .grid { grid-template-columns: 1fr; }
+}

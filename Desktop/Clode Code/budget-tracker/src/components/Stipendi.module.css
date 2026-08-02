@@ -1,0 +1,60 @@
+.empty {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  padding: 32px 20px;
+  background: var(--glass2);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+}
+
+.wrap {
+  background: var(--glass2);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.chartWrap {
+  padding: 20px 20px 10px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.list { padding: 6px 0; }
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 20px;
+  transition: background 0.15s;
+}
+
+.row:hover { background: var(--glass3); }
+
+.label {
+  flex: 1;
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.amount {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.del {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  padding: 3px 7px;
+  border-radius: 4px;
+  transition: all 0.15s;
+}
+
+.del:hover { background: rgba(248,113,113,0.1); color: var(--red); }

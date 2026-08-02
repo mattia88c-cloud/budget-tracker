@@ -1,0 +1,123 @@
+.wrap {
+  background: var(--glass2);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon { font-size: 1rem; }
+
+.title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.toggle {
+  display: flex;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.toggleBtn {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  border-radius: 999px;
+  padding: 4px 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggleActive {
+  background: var(--primary-dim);
+  color: var(--primary);
+  border: 1px solid var(--primary-glow);
+}
+
+.body { padding-left: 28px; }
+
+.valueRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.value {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.03em;
+}
+
+.computed {
+  font-size: 0.78rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.editHint {
+  font-size: 0.8rem;
+  opacity: 0.4;
+  margin-left: auto;
+}
+
+.editRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input {
+  background: rgba(167,139,250,0.07);
+  border: 1.5px solid var(--primary-glow);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 700;
+  width: 120px;
+}
+
+.input:focus { outline: none; box-shadow: 0 0 0 2px var(--primary-dim); }
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+.unit {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.saveBtn {
+  background: var(--primary-dim);
+  border: 1px solid var(--primary-glow);
+  border-radius: 6px;
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.saveBtn:hover { background: rgba(167,139,250,0.25); }

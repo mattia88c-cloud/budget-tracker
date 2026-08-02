@@ -1,0 +1,55 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.header:hover .title { color: var(--text); }
+.header:hover .arrow { color: var(--primary); }
+
+.title {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+
+.arrow {
+  font-size: 1rem;
+  color: var(--text-muted);
+  transform: rotate(90deg);
+  transition: transform 0.2s ease, color 0.15s;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.arrowOpen {
+  transform: rotate(-90deg);
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--glass-border), transparent);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
