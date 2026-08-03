@@ -35,6 +35,24 @@
   padding: 3px 12px;
 }
 
+.snapshotRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.snapMonthInput {
+  background: var(--glass2);
+  border: 1px solid var(--glass-border2);
+  border-radius: 8px;
+  padding: 4px 8px;
+  color: var(--text-soft);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.snapMonthInput:focus { outline: none; border-color: var(--primary); }
+
 .snapshotBtn {
   font-size: 0.75rem;
   font-weight: 600;

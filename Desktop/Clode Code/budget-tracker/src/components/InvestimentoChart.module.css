@@ -1,0 +1,194 @@
+.wrap { padding: 4px 0 8px; display: flex; flex-direction: column; gap: 16px; }
+
+.statsRow {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.statBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statLabel {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.statValue {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.noChart {
+  text-align: center;
+  padding: 20px;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  background: var(--glass3);
+  border-radius: 8px;
+}
+
+/* Contributi */
+.contriSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 12px;
+}
+
+.contriHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contriTitle {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.addToggle {
+  background: none;
+  border: 1px solid var(--glass-border2);
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.addToggle:hover { border-color: var(--primary); color: var(--primary); }
+
+.addForm {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.addInput {
+  background: rgba(167,139,250,0.07);
+  border: 1.5px solid var(--glass-border2);
+  border-radius: 6px;
+  padding: 5px 8px;
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  width: 130px;
+  transition: border-color 0.15s;
+}
+.addInput:focus { outline: none; border-color: var(--primary); }
+.addInput::-webkit-outer-spin-button,
+.addInput::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+.addCurrency {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.addBtn {
+  background: rgba(74,222,128,0.15);
+  border: 1px solid rgba(74,222,128,0.35);
+  border-radius: 6px;
+  color: #4ade80;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.addFieldGroup {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.addFieldLabel {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.contriList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contriHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.contriRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  padding: 4px 0;
+}
+
+.contriLabel {
+  flex: 1;
+  color: var(--text-soft);
+}
+
+.contriAdded {
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.contriCumul {
+  font-weight: 700;
+  color: var(--text);
+  min-width: 64px;
+  text-align: right;
+}
+
+.contriDel {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  cursor: pointer;
+  padding: 2px 4px;
+  opacity: 0.5;
+  transition: opacity 0.15s;
+}
+.contriDel:hover { opacity: 1; color: #f87171; }
+
+.contriTotal {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  border-top: 1px solid var(--glass-border);
+  padding-top: 6px;
+  margin-top: 2px;
+}

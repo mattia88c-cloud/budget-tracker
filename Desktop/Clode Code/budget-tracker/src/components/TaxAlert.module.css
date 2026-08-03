@@ -1,0 +1,163 @@
+.wrap {
+  background: var(--glass2);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color 0.2s;
+}
+
+.ok    { border-color: rgba(74,222,128,0.3); }
+.warn  { border-color: rgba(245,158,11,0.3); }
+.danger{ border-color: rgba(248,113,113,0.4); box-shadow: 0 0 20px rgba(248,113,113,0.06) inset; }
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.icon { font-size: 1rem; }
+
+.title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  flex: 1;
+}
+
+.dueBadge {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  background: var(--glass3);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+
+.monthsLeft {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.body { display: flex; flex-direction: column; gap: 12px; }
+
+.amounts {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.amountBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.amountLabel {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.amountValue {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.setHint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.divider {
+  font-size: 1.2rem;
+  color: var(--glass-border2);
+  font-weight: 300;
+  margin-top: 14px;
+}
+
+.inlineEdit {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.editCurrency {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.editInput {
+  background: rgba(167,139,250,0.08);
+  border: 1.5px solid var(--primary);
+  border-radius: 6px;
+  padding: 4px 8px;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 700;
+  width: 110px;
+}
+.editInput[type="month"] { width: 140px; }
+.editInput:focus { outline: none; }
+.editInput::-webkit-outer-spin-button,
+.editInput::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+.confirmBtn {
+  background: rgba(74,222,128,0.15);
+  border: 1px solid rgba(74,222,128,0.35);
+  border-radius: 6px;
+  color: var(--green);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 3px 7px;
+  cursor: pointer;
+}
+
+.progressWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progressBar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+
+.pct {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  min-width: 32px;
+  text-align: right;
+}
+
+.message {
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.4;
+}

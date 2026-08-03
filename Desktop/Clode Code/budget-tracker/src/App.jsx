@@ -5,11 +5,14 @@ import CategorySummary from './components/CategorySummary.jsx'
 import AnnualProjection from './components/AnnualProjection.jsx'
 import ExpenseList from './components/ExpenseList.jsx'
 import PatrimonioChart from './components/PatrimonioChart.jsx'
+import SpeseCategoryChart from './components/SpeseCategoryChart.jsx'
 import ExportImport from './components/ExportImport.jsx'
 import Conti from './components/Conti.jsx'
 import Fatturazione from './components/Fatturazione.jsx'
 import FattureList from './components/FattureList.jsx'
 import CollapsibleSection from './components/CollapsibleSection.jsx'
+import TaxAlert from './components/TaxAlert.jsx'
+import InvestimentoChart from './components/InvestimentoChart.jsx'
 import { useExpenses } from './useExpenses.js'
 import { useInvestimento } from './useInvestimento.js'
 import { useFatture } from './useFatture.js'
@@ -86,12 +89,18 @@ export default function App() {
                     onUpdateInv={updateInv}
                   />
                 </CollapsibleSection>
+                <CollapsibleSection title="Crescita investimenti" storageKey="inv-chart">
+                  <InvestimentoChart />
+                </CollapsibleSection>
               </div>
               <div className={styles.rightCol}>
                 <CollapsibleSection title="Per categoria" storageKey="categoria">
                   <CategorySummary salary={salary} expenses={expenses} taxes={taxes} taxesActive={taxesActive} salaryNetto={salaryNetto} />
                 </CollapsibleSection>
-<CollapsibleSection title="Proiezione annuale" storageKey="proiezione">
+                <CollapsibleSection title="Alert tasse" storageKey="tax-alert">
+                  <TaxAlert />
+                </CollapsibleSection>
+                <CollapsibleSection title="Proiezione annuale" storageKey="proiezione">
                   <AnnualProjection
                     salary={salary}
                     stipendi={fatture}
@@ -136,6 +145,15 @@ export default function App() {
                 onEdit={editExpense}
                 onRemove={removeExpense}
                 onDuplicate={duplicateExpense}
+                salaryNetto={salaryNetto}
+              />
+            </CollapsibleSection>
+            <CollapsibleSection title="Spese per categoria" storageKey="spese-chart">
+              <SpeseCategoryChart
+                expenses={expenses}
+                salary={salary}
+                taxes={taxes}
+                taxesActive={taxesActive}
                 salaryNetto={salaryNetto}
               />
             </CollapsibleSection>

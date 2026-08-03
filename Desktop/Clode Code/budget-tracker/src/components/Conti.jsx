@@ -16,6 +16,7 @@ export default function Conti() {
   const [editingBalance, setEditingBalance] = useState({})
   const [flash, setFlash] = useState('')
   const [openSnap, setOpenSnap] = useState(null)
+  const [snapMonth, setSnapMonth] = useState(() => new Date().toISOString().slice(0, 7))
 
   useEffect(() => { localStorage.setItem('budget_conti', JSON.stringify(conti)) }, [conti])
   useEffect(() => { localStorage.setItem('budget_conti_storico', JSON.stringify(storico)) }, [storico])
@@ -45,14 +46,20 @@ export default function Conti() {
 
   function saveSnapshot() {
     if (conti.length === 0) return
-    const label = new Date().toLocaleDateString('it-IT', { month: 'long', year: 'numeric' })
+    const [y, m] = snapMonth.split('-').map(Number)
+    const date = new Date(y, m - 1, 1)
+    const label = date.toLocaleDateString('it-IT', { month: 'long', year: 'numeric' })
+    const ym = snapMonth
     const snap = {
       id: Date.now(),
       label,
-      date: new Date().toISOString(),
+      date: date.toISOString(),
       conti: conti.map(c => ({ name: c.name, balance: c.balance })),
     }
-    setStorico(prev => [snap, ...prev])
+    setStorico(prev => {
+      const filtered = prev.filter(s => !s.date || s.date.slice(0, 7) !== ym)
+      return [snap, ...filtered].sort((a, b) => new Date(b.date) - new Date(a.date))
+    })
     showFlash('Snapshot salvato!')
   }
 
@@ -78,9 +85,17 @@ export default function Conti() {
             <span className={styles.totalBadge}>{fmt(total)}</span>
           )}
         </div>
-        <button className={styles.snapshotBtn} onClick={saveSnapshot} disabled={conti.length === 0}>
-          📸 Salva snapshot mese
-        </button>
+        <div className={styles.snapshotRow}>
+          <input
+            className={styles.snapMonthInput}
+            type="month"
+            value={snapMonth}
+            onChange={e => setSnapMonth(e.target.value)}
+          />
+          <button className={styles.snapshotBtn} onClick={saveSnapshot} disabled={conti.length === 0}>
+            📸 Salva
+          </button>
+        </div>
       </div>
 
       {flash && <div className={styles.flash}>{flash}</div>}

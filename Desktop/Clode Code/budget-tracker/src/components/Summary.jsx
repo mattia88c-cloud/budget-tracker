@@ -46,8 +46,6 @@ export default function Summary({ salary, expenses, taxes, taxesActive, onToggle
     .filter(e => e.group !== 'Investimenti')
     .reduce((s, e) => s + calcAmount(e, salaryNetto), 0)
 
-  const residuo = salary - totalExpenses - taxes
-
   // Investment display
   const invMonthly = inv.type === 'percentage'
     ? salaryNetto * (inv.percentage || 0) / 100
@@ -71,6 +69,8 @@ export default function Summary({ salary, expenses, taxes, taxesActive, onToggle
   const goalValue = goalType === 'percentage'
     ? salaryNetto * goalPct / 100
     : goal
+
+  const residuo = salary - taxes - totalExpenses - invMonthly - goalValue
 
   const positive = residuo >= 0
   const pct = salary > 0 ? Math.round((Math.abs(residuo) / salary) * 100) : 0
