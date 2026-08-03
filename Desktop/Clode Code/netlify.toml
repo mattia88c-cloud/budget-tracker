@@ -1,4 +1,0 @@
-[build]
-  base    = "budget-tracker"
-  command = "npm run build"
-  publish = "dist"
