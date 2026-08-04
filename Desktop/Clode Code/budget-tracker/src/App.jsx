@@ -28,7 +28,7 @@ export default function App() {
   const [page, setPage] = useState('dashboard')
   const { expenses, addExpense, removeExpense, toggleExpense, editExpense, importExpenses, duplicateExpense } = useExpenses()
   const { inv, update: updateInv } = useInvestimento()
-  const { fatture, deleteFattura } = useFatture()
+  const { fatture, addFattura, deleteFattura } = useFatture()
 
   const taxes = taxesActive ? salary * 0.25 : 0
   const salaryNetto = salary - taxes
@@ -127,7 +127,7 @@ export default function App() {
               </div>
               <div className={styles.rightCol}>
                 <CollapsibleSection title="Storico stipendi" storageKey="stipendi">
-                  <FattureList fatture={fatture} onDelete={deleteFattura} />
+                  <FattureList fatture={fatture} onDelete={deleteFattura} onAdd={addFattura} />
                 </CollapsibleSection>
               </div>
             </div>

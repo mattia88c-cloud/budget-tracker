@@ -21,7 +21,68 @@
   color: var(--text-soft);
 }
 
+.headerRight { display: flex; align-items: center; gap: 8px; }
+
 .yearBtns { display: flex; gap: 4px; }
+
+.addToggle {
+  background: var(--primary-dim);
+  border: 1px solid var(--primary-glow);
+  border-radius: 6px;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s;
+}
+.addToggle:hover { opacity: 0.8; }
+
+.addForm {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--glass-border);
+  flex-wrap: wrap;
+  background: var(--glass3);
+}
+
+.addInput {
+  background: var(--glass2);
+  border: 1.5px solid var(--glass-border2);
+  border-radius: 6px;
+  padding: 5px 8px;
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: border-color 0.15s;
+}
+.addInput:focus { outline: none; border-color: var(--primary); }
+.addInput::-webkit-outer-spin-button,
+.addInput::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+.addCurrency {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.addBtn {
+  background: rgba(74,222,128,0.15);
+  border: 1px solid rgba(74,222,128,0.35);
+  border-radius: 6px;
+  color: #4ade80;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
 
 .yearBtn {
   font-size: 0.72rem;

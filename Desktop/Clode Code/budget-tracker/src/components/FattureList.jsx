@@ -41,10 +41,23 @@ function RowMenu({ onDelete }) {
   )
 }
 
-export default function FattureList({ fatture, onDelete }) {
+export default function FattureList({ fatture, onDelete, onAdd }) {
   const [listOpen, setListOpen] = useState(true)
+  const [showAdd, setShowAdd] = useState(false)
+  const [dateInput, setDateInput] = useState('')
+  const [amountInput, setAmountInput] = useState('')
   const years = [...new Set(fatture.map(f => f.date.slice(0, 4)))].sort((a, b) => b - a)
   const [year, setYear] = useState(years[0] ?? '2026')
+
+  function handleAdd() {
+    if (!dateInput || !amountInput) return
+    const amount = parseFloat(amountInput)
+    if (isNaN(amount) || amount <= 0) return
+    onAdd(dateInput, amount)
+    setDateInput('')
+    setAmountInput('')
+    setShowAdd(false)
+  }
 
   const yearFatture = [...fatture.filter(f => f.date.startsWith(year))]
     .sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -53,16 +66,43 @@ export default function FattureList({ fatture, onDelete }) {
     <div className={styles.wrap}>
       <div className={styles.header}>
         <span className={styles.title}>Dettaglio fatture</span>
-        <div className={styles.yearBtns}>
-          {years.map(y => (
-            <button
-              key={y}
-              className={`${styles.yearBtn} ${year === y ? styles.yearActive : ''}`}
-              onClick={() => setYear(y)}
-            >{y}</button>
-          ))}
+        <div className={styles.headerRight}>
+          <div className={styles.yearBtns}>
+            {years.map(y => (
+              <button
+                key={y}
+                className={`${styles.yearBtn} ${year === y ? styles.yearActive : ''}`}
+                onClick={() => setYear(y)}
+              >{y}</button>
+            ))}
+          </div>
+          <button className={styles.addToggle} onClick={() => setShowAdd(v => !v)}>
+            {showAdd ? '✕' : '＋'}
+          </button>
         </div>
       </div>
+
+      {showAdd && (
+        <div className={styles.addForm}>
+          <input
+            className={styles.addInput}
+            type="date"
+            value={dateInput}
+            onChange={e => setDateInput(e.target.value)}
+          />
+          <span className={styles.addCurrency}>€</span>
+          <input
+            className={styles.addInput}
+            type="number" min="0" step="0.01"
+            value={amountInput}
+            onChange={e => setAmountInput(e.target.value)}
+            onKeyDown={e => e.key === 'Enter' && handleAdd()}
+            placeholder="Importo"
+            style={{ width: 110 }}
+          />
+          <button className={styles.addBtn} onClick={handleAdd}>✓ Salva</button>
+        </div>
+      )}
 
       <div className={styles.listHeader} onClick={() => setListOpen(o => !o)}>
         <span className={styles.listLabel}>{yearFatture.length} fatture</span>

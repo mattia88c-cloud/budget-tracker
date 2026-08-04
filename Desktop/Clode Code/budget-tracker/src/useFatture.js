@@ -52,11 +52,18 @@ function load() {
 export function useFatture() {
   const [fatture, setFatture] = useState(load)
 
+  function addFattura(date, amount) {
+    const next = [...fatture, { id: Date.now(), date, amount }]
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+    localStorage.setItem('budget_fatture', JSON.stringify(next))
+    setFatture(next)
+  }
+
   function deleteFattura(id) {
     const next = fatture.filter(f => f.id !== id)
     localStorage.setItem('budget_fatture', JSON.stringify(next))
     setFatture(next)
   }
 
-  return { fatture, deleteFattura }
+  return { fatture, addFattura, deleteFattura }
 }
